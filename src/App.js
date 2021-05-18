@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import Login from './components/login/Login';
+import IdeaPage from './components/idea/IdeaPage';
+import { connect } from "react-redux";
+import './styles/App.scss';
 
-function App() {
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+const App = (props) => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {props.logged ?
+        <IdeaPage /> :
+        <Login />
+      }
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    logged: state.login.logged
+  };
+};
+
+export default connect(mapStateToProps, {})(App);

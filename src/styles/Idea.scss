@@ -1,0 +1,97 @@
+$primaryColor: #fe6261;
+$secondaryColor: #333333;
+$tertiaryColor: #efefef;
+$font: 'Poppins', sans-serif;
+$medium: 768px;
+
+.idea-page  {
+    text-align: left;
+    font-family: $font;
+    height: 100vh;
+    background-color: $tertiaryColor;
+    color: $secondaryColor;
+}
+
+.navbar {
+    justify-content: space-between;
+}
+
+.navbar-title {
+    font-weight: 900;
+}
+
+.name-container {
+    background-color: $primaryColor;
+    color: $tertiaryColor;
+    margin-left: auto;
+    margin-right: 5px;
+    // padding-left: 10px !important;
+    width: 300px;
+    @media screen and (max-width: $medium) {
+        // padding-left: 0px !important;
+        margin: 10px 0px !important;
+        // margin-left: 0px;
+        // margin-right: 0px;
+        width: 100%;
+    }
+}
+
+.nav-user-name {
+    margin-left: 5px;
+}
+
+.share-button  {
+    background-color: $primaryColor !important;
+    color: $tertiaryColor !important;
+    width: 140px;
+    margin-top: 15px;
+}
+
+.align-right  {
+    text-align: right;
+}
+
+.idea-list-container {
+    background-color: $secondaryColor !important;
+    margin-top: 40px;
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+    width: unset !important;
+}
+
+.spinner-container {
+    text-align: center;
+    padding: 50px 0px;
+}
+
+.idea-area {
+    margin: 10px 0px;
+    background-color: white !important;
+}
+
+.idea-footer {
+    color: white;
+    text-align: right;
+}
+
+.person-icon {
+    color: $primaryColor;
+    width: 60px;
+    height: 60px;
+    background-color: $tertiaryColor;
+    border-radius: 50%;
+    
+    position: inherit;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.button-pagination-container {
+    text-align: right;
+}
+
+.button-pagination {
+    background-color: $primaryColor !important;
+    margin: 5px;
+}

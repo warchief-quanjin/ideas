@@ -1,0 +1,39 @@
+$primaryColor: #fe6261;
+$secondaryColor: #333333;
+$tertiaryColor: #efefef;
+$font: 'Poppins', sans-serif;
+
+.login-page  {
+    font-family: $font;
+    height: 100vh;
+    background-color: $secondaryColor;
+    color: $tertiaryColor;
+}
+
+.login-form  {
+    max-width: 540px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.login-group  {
+    text-align: right;
+}
+
+.bg-login-button  {
+    background-color: $primaryColor !important;
+    color: $tertiaryColor !important;
+    width: 140px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.buttons-container {
+    text-align: right;
+}
+
+.login-title  {
+    font-weight: 900;
+    padding-top: 25px;
+    padding-bottom: 15px;
+}
