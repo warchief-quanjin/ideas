@@ -30,10 +30,13 @@ const ShareIdea = (props) => {
 
     return (
         <Container fluid>
-            <h3 className="login-title">Comparte tu idea</h3>
-            <FormControl onChange={(e) => setIdea(e.target.value)} value={idea} as="textarea" rows="5" aria-label="Share idea" />
+            <div style={{ width: '50%' }} >
+                <h3 className="login-title">Comparte tu idea</h3>
+                <hr className="primary-hr" />
+            </div>
+            <FormControl onChange={(e) => setIdea(e.target.value)} value={idea} as="textarea" rows="7" aria-label="Share idea" />
             <div className="align-right">
-                <Button onClick={saveIdea} className="share-button" variant="default">
+                <Button disabled={!idea} onClick={saveIdea} className="share-button" variant="default">
                     Share
                 </Button>
             </div>
@@ -42,9 +45,9 @@ const ShareIdea = (props) => {
 }
 
 const mapStateToProps = state => {
-    return { 
+    return {
         ideaSaved: state.idea.ideaSaved
-     };
+    };
 };
 
 export default connect(mapStateToProps, { addIdea })(ShareIdea);

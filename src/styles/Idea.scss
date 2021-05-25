@@ -7,9 +7,14 @@ $medium: 768px;
 .idea-page  {
     text-align: left;
     font-family: $font;
-    height: 100vh;
+    padding-bottom: 40px;
     background-color: $tertiaryColor;
     color: $secondaryColor;
+}
+
+.primary-hr {
+    background-color: $primaryColor;
+    height: 1px;
 }
 
 .navbar {
@@ -20,13 +25,18 @@ $medium: 768px;
     font-weight: 900;
 }
 
+.logout-button {
+    background-color: $primaryColor !important;
+    color: $tertiaryColor !important;
+}
+
 .name-container {
     background-color: $primaryColor;
     color: $tertiaryColor;
     margin-left: auto;
     margin-right: 5px;
     // padding-left: 10px !important;
-    width: 300px;
+    // width: 300px;
     @media screen and (max-width: $medium) {
         // padding-left: 0px !important;
         margin: 10px 0px !important;
@@ -38,6 +48,7 @@ $medium: 768px;
 
 .nav-user-name {
     margin-left: 5px;
+    margin-right: 5px;
 }
 
 .share-button  {

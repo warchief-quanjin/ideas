@@ -1,11 +1,13 @@
-import { ADD_IDEA, GET_IDEAS, IDEA_LOADING } from "../actionTypes";
+import { ADD_IDEA, GET_IDEAS, GET_USERS, IDEA_LOADING, IDEA_ERROR } from "../actionTypes";
 
 const initialState = {
     ideas: [],
+    users: [],
     nextIdeas: false,
     prevIdeas: false,
     loading: true,
-    ideaSaved: false
+    ideaSaved: false,
+    errorMessage: ""
 };
 
 const ideaReducer = (state = initialState, action) => {
@@ -32,6 +34,19 @@ const ideaReducer = (state = initialState, action) => {
                 nextIdeas: links.next,
                 prevIdeas: links.prev,
                 loading: false
+            };
+        }
+        case GET_USERS: {         
+            return {
+                ...state,
+                users: action.data,                
+                loading: false
+            };
+        }
+        case IDEA_ERROR: {
+            return {
+                ...state,
+                errorMessage: action.data
             };
         }
         default:

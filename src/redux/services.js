@@ -2,6 +2,8 @@ import { Api } from '../properties';
 
 export const services = {
     getIdeas,
+    getUsers,
+    getLoggedUser,
     addIdea,
     login,
     register,
@@ -46,6 +48,46 @@ function getIdeas(page) {
     }).catch(error => {
         return Promise.reject({
             error: error.response
+        });
+    });
+}
+
+function getLoggedUser() {
+    const token = sessionStorage.getItem("token")
+    return Api.instance().get(`/user/?api_token=${token}`).then((response) => {
+        return Promise.resolve(response)
+    }).catch(error => {
+        return Promise.reject({
+            error: error.response
+        });
+    });
+};
+
+async function getUser(id) {
+    const token = sessionStorage.getItem("token")
+    return await Api.instance().get(`/user/${id}/?api_token=${token}`)
+};
+
+function getUsers(ids) {
+    const usersFunctions = [];
+    ids.forEach(id => {
+        usersFunctions.push(getUser(id))
+    });
+
+    return Promise.all(usersFunctions).then((response) => {
+        const users = [];
+
+        if (response.length > 0) {
+            response.forEach(element => {
+                const user = element.data.data;
+                users.push({ id: user.id, name: user.name, email: user.email })
+            });
+        }
+
+        return Promise.resolve(users)
+    }).catch(error => {
+        return Promise.reject({
+            error: error
         });
     });
 }

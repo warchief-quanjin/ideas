@@ -15,9 +15,9 @@ const IdeaElement = (props) => {
             <Col style={{ margin: '10px 0px' }}>
                 <PersonFill className="person-icon" />
             </Col>
-            <Col xs={12} md={11}>
+            <Col md={10}>
                 <FormControl className="idea-area" as="textarea" disabled rows={5} value={idea.body} aria-label="Share idea" />
-                <h6 className="idea-footer">{`${moment(idea.created_at).format('DD/MM/YY')} `}</h6>
+                <h6 className="idea-footer">{`${moment(idea.created_at).format('DD/MM/YY')} ${idea.username ? idea.username : 'user_id: ' + idea.user_id}`}</h6>
             </Col>
         </Row >
     )

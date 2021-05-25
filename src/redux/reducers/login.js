@@ -1,9 +1,11 @@
-import { LOGIN, LOGOUT, REGISTER, LOGIN_ERROR } from "../actionTypes";
+import { LOGIN, LOGOUT, GET_LOGGED_USER, REGISTER, LOGIN_ERROR, LOGIN_LOADING } from "../actionTypes";
 
 const initialState = {
     user: {},
+    // logged: sessionStorage.getItem("token") ? true : false,
     logged: false,
-    errorMessage: ""
+    errorMessage: "",
+    loading: false
 };
 
 const loginReducer = (state = initialState, action) => {
@@ -12,6 +14,7 @@ const loginReducer = (state = initialState, action) => {
             return {
                 ...state,
                 logged: true,
+                loading: false,
                 user: { name: action.data.data.name },
                 errorMessage: ""
             };
@@ -20,6 +23,16 @@ const loginReducer = (state = initialState, action) => {
             return {
                 ...state,
                 logged: true,
+                loading: false,
+                user: { name: action.data.data.name },
+                errorMessage: ""
+            };
+        }
+        case GET_LOGGED_USER: {
+            return {
+                ...state,
+                logged: true,
+                loading: false,
                 user: { name: action.data.data.name },
                 errorMessage: ""
             };
@@ -27,6 +40,7 @@ const loginReducer = (state = initialState, action) => {
         case LOGOUT: {
             return {
                 ...state,
+                loading: false,
                 logged: false,
                 user: {}
             };
@@ -34,9 +48,16 @@ const loginReducer = (state = initialState, action) => {
         case LOGIN_ERROR: {
             return {
                 ...state,
+                loading: false,
                 logged: false,
                 user: {},
                 errorMessage: action.data
+            };
+        }
+        case LOGIN_LOADING: {
+            return {
+                ...state,
+                loading: true
             };
         }
         default:

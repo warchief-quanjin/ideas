@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import Spinner from 'react-bootstrap/Spinner'
 import Form from 'react-bootstrap/Form';
 import { useForm } from "react-hook-form";
 
@@ -11,13 +12,15 @@ import { login, register } from "../../redux/actions";
 import '../../styles/Login.scss';
 
 const Login = (props) => {
+    const { loading } = props;
+
     const [action, setAction] = useState("login")
     const [showAlert, setShowAlert] = useState(false);
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     useEffect(() => {
-        if(props.errorMessage) {
+        if (props.errorMessage) {
             setShowAlert(true)
         }
     }, [props.errorMessage])
@@ -40,6 +43,14 @@ const Login = (props) => {
     }
 
     const password = watch("password", "");
+
+    if (loading) {
+        return (
+            <Container className="spinner-container loading-container" fluid>
+                <Spinner variant="primary" animation="border" />
+            </Container>
+        )
+    }
 
     return (
         <Container fluid className="login-page">
@@ -98,7 +109,6 @@ const Login = (props) => {
                             />
                             {errors.passwordConfirmation && <Form.Label type="invalid">{errors.passwordConfirmation.message}</Form.Label>}
                         </Form.Group>}
-
                     <Form.Group className='buttons-container' controlId="buttons">
                         {action === 'login' &&
                             <Button onClick={(e) => changeAction(e, 'register')} className="bg-login-button" variant="default">
@@ -122,7 +132,8 @@ const Login = (props) => {
 
 const mapStateToProps = state => {
     return {
-        errorMessage: state.login.errorMessage
+        errorMessage: state.login.errorMessage,
+        loading: state.login.loading
     };
 };
 

@@ -1,0 +1,192 @@
+$primaryColor: #fe6261;
+$secondaryColor: #333333;
+$tertiaryColor: #efefef;
+$font: 'Poppins', sans-serif;
+$large: 991px;
+
+.home {
+    height: 400px;
+    font-family: $font;
+    background: url('../assets/layout/office.jpg') no-repeat;
+    background-color: #333838e6;
+    background-blend-mode: multiply;
+    background-size: cover;
+    color: white;
+    display: grid;
+    place-items: center;
+}
+
+.primary-hr {
+    background-color: $primaryColor;
+    height: 1px;
+}
+
+.about {
+    // height: 400px;
+    font-family: $font;
+    background-color: $tertiaryColor;
+}
+
+.about-image {
+    width: 100%;
+    height: 500px;
+    @media screen and (max-width: $large) {
+        height: 400px;
+    }
+}
+
+.about-text-column {
+    display: grid;
+    place-items: center;
+}
+
+.about-text-container {
+    text-align: left;
+    padding: 60px 12px;
+}
+
+.about-button {
+    background-color: $primaryColor !important;
+    color: $tertiaryColor !important;
+    width: 140px;
+    margin-top: 15px;
+}
+
+.services {
+    font-family: $font;
+    padding: 70px 20px !important;
+    text-align: left;
+}
+
+.services-element-icon {
+    color: $primaryColor;
+    height: 30px;
+    width: 30px;
+}
+
+.services-element-container {
+    text-align: center;
+    margin-top: 70px;
+}
+
+.features {
+    font-family: $font;
+    background-color: $tertiaryColor;
+    padding: 70px 20px !important;
+    text-align: left;
+}
+
+.features-element {
+    margin: 25px 0px;
+}
+
+.features-element-text {
+    font-size: 13px;
+}
+
+.workteam {
+    font-family: $font;
+    padding: 70px 20px !important;
+    text-align: left;
+}
+
+.workteam-element {
+    background-color: $tertiaryColor;
+    text-align: center;
+    padding: 20px;
+}
+
+.workteam-element:hover {
+    background-color: $secondaryColor;
+    color: white;
+}
+
+.workteam-element-title {
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 15px 0px;
+}
+
+.workteam-element:hover .workteam-element-title{
+    color: $primaryColor;
+}
+
+.workteam-element-social {
+    height: 30px;
+    width: 30px;
+    margin: 10px 0px;
+}
+
+.workteam-element:hover .workteam-element-social{
+    color: $primaryColor;
+}
+
+.workteam-element-text {
+    color: black;
+    font-size: 13px;
+    text-align: left;
+}
+
+.workteam-element:hover .workteam-element-text{
+    color: white;
+}
+
+.workteam-element-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.contact {
+    font-family: $font;
+    background-color: $tertiaryColor;
+    padding: 70px 20px !important;
+    text-align: left;
+}
+
+.contact-form-group {
+    display: flex;
+}
+
+.contact-form-icon {
+    height: 30px;
+    width: 30px;
+    color: $primaryColor;
+    margin: 4px;
+}
+
+.contact-form-button {
+    background-color: $primaryColor !important;
+    color: $tertiaryColor !important;
+    width: 140px;
+    margin-top: 15px;
+    float: right;
+}
+
+.contact-map-card {
+    background-color: $secondaryColor !important;
+    color: white;
+}
+
+.footer {
+    font-family: $font;
+    background-color: $secondaryColor;
+    color: white;
+    text-align: center;
+    padding: 25px 0px 0px 0px;
+}
+
+.footer-payment-icon {
+    font-size: 20px;
+    margin: 3px;
+}
+
+.footer-lower {
+    background-color: $primaryColor;
+    font-size: 12px;
+}
+
+.footer-lower-icon {
+    margin: 0px 3px;
+}
