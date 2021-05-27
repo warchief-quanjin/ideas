@@ -5,6 +5,7 @@ import { ADD_IDEA, GET_IDEAS, GET_USERS, GET_LOGGED_USER, IDEA_LOADING, IDEA_ERR
 
 export const login = (payload) => {
     return (dispatch, getState) => {
+        dispatch({ type: LOGIN_LOADING, data: true })
         return services.login(payload).then((response) => {
             if (response.status === 200) {
                 sessionStorage.setItem("token", response.data.data.api_token);
@@ -17,7 +18,7 @@ export const login = (payload) => {
             }
         }).catch(error => {
             if (error && error.error && error.error.status === 422) {
-                dispatch({ type: LOGIN_ERROR, data: "Usuario Invalido" })
+                dispatch({ type: LOGIN_ERROR, data: "Usuario o contraseña invalida" })
             } else {
                 dispatch({ type: LOGIN_ERROR, data: `Respuesta desconocida, codigo de respuesta: ${error && error.error ? error.error.status : "500"}` })
             }
@@ -27,7 +28,7 @@ export const login = (payload) => {
 
 export const register = (payload) => {
     return (dispatch, getState) => {
-        dispatch({ type: LOGIN_LOADING })
+        dispatch({ type: LOGIN_LOADING, data: true })
         return services.register(payload).then((response) => {
             if (response.status === 201) {
                 sessionStorage.setItem("token", response.data.data.api_token);
@@ -49,7 +50,7 @@ export const register = (payload) => {
 
 export const getLoggedUser = (page) => {
     return (dispatch, getState) => {
-        store.dispatch({ type: LOGIN_LOADING })
+        store.dispatch({ type: LOGIN_LOADING, data: true })
 
         return services.getLoggedUser(page).then((response) => {
             if (response.status === 200) {
@@ -67,7 +68,7 @@ export const getLoggedUser = (page) => {
 
 export const logout = () => {
     return (dispatch, getState) => {
-        dispatch({ type: LOGIN_LOADING })
+        dispatch({ type: LOGIN_LOADING, data: true })
         return services.logout().then((response) => {
             if (response.status === 200) {
                 sessionStorage.removeItem("token");

@@ -1,39 +1,25 @@
-import React, { useEffect } from 'react';
-import Login from './components/login/Login';
-import Layout from './components/layout/Layout';
-// import IdeaPage from './components/idea/IdeaPage';
-import { connect } from "react-redux";
-import './styles/App.scss';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import { getLoggedUser } from "./redux/actions";
+import NotFound from './components/common/NotFound';
+import Layout from './components/layout/Layout';
+import IdeaMain from './components/idea/IdeaMain';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/App.scss';
 
 const App = (props) => {
-  const { getLoggedUser } = props;
-
-  useEffect(() => {
-    const token = sessionStorage.getItem("token")
-
-    if (token) {
-      getLoggedUser()
-    }
-  }, [])
-
   return (
     <div className="App">
-      {props.logged ?
-        <Layout /> :
-        <Login />
-      }
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Layout} />
+          <Route exact path="/idea" component={IdeaMain} />
+          <Route component={NotFound} />
+        </Switch>
+      </Router>
     </div>
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    logged: state.login.logged
-  };
-};
-
-export default connect(mapStateToProps, { getLoggedUser })(App);
+export default App;

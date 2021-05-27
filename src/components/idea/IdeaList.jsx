@@ -66,7 +66,8 @@ const IdeaList = (props) => {
                 </Button>
             </Container>
             {!loading ?
-                ideasList.map((idea, key) => <IdeaElement idea={idea} key={key} />) :
+                ideasList.map((idea, key) =>
+                    <IdeaElement idea={idea} key={key} />) :
                 <Container className="spinner-container" fluid>
                     <Spinner variant="primary" animation="border" />
                 </Container>}

@@ -3,16 +3,16 @@ import { connect } from "react-redux";
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Spinner from 'react-bootstrap/Spinner'
 import Form from 'react-bootstrap/Form';
 import { useForm } from "react-hook-form";
 
+import Loading from "../common/Loading";
 import { login, register } from "../../redux/actions";
 
 import '../../styles/Login.scss';
 
 const Login = (props) => {
-    const { loading } = props;
+    const { errorMessage, loading } = props;
 
     const [action, setAction] = useState("login")
     const [showAlert, setShowAlert] = useState(false);
@@ -20,10 +20,9 @@ const Login = (props) => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     useEffect(() => {
-        if (props.errorMessage) {
+        if (errorMessage)
             setShowAlert(true)
-        }
-    }, [props.errorMessage])
+    }, [errorMessage])
 
     const onSubmit = data => {
         const { login, register } = props;
@@ -46,9 +45,7 @@ const Login = (props) => {
 
     if (loading) {
         return (
-            <Container className="spinner-container loading-container" fluid>
-                <Spinner variant="primary" animation="border" />
-            </Container>
+            <Loading />
         )
     }
 
@@ -133,7 +130,8 @@ const Login = (props) => {
 const mapStateToProps = state => {
     return {
         errorMessage: state.login.errorMessage,
-        loading: state.login.loading
+        loading: state.login.loading,
+        logged: state.login.logged
     };
 };
 

@@ -57,7 +57,7 @@ const loginReducer = (state = initialState, action) => {
         case LOGIN_LOADING: {
             return {
                 ...state,
-                loading: true
+                loading: action.data
             };
         }
         default:

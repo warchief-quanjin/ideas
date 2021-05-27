@@ -54,13 +54,13 @@ const MapCard = (props) => {
                 <Card.Title>Ubicacion</Card.Title>
                 <hr className="primary-hr" />
                 <div>
-                    <Row style={{ margin: '5px 0px'}}>
+                    <Row style={{ margin: '5px 0px' }}>
                         <TelephoneFill className="contact-form-icon" /> 33 1234 5678
                     </Row>
-                    <Row style={{ margin: '5px 0px'}}>
+                    <Row style={{ margin: '5px 0px' }}>
                         <Envelope className="contact-form-icon" />info@emprend.com
                     </Row>
-                    <Row style={{ margin: '5px 0px'}}>
+                    <Row style={{ margin: '5px 0px' }}>
                         <GeoAltFill className="contact-form-icon" />221b Baker Street, London
                     </Row>
                 </div>

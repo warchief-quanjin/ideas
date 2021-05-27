@@ -37,7 +37,7 @@ describe('Login', () => {
 
         return store.dispatch(actions.login(payload)).then(() => {
             const actions = store.getActions()
-            expect(actions[0].data.data.email).toEqual("varok_saurfang@gmail.com")
+            expect(actions[1].data.data.email).toEqual("varok_saurfang@gmail.com")
         })
     })
 

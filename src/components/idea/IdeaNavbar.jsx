@@ -24,21 +24,12 @@ const IdeaNavbar = (props) => {
             <Navbar.Brand className="navbar-title" href="#">emprenD</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav.Link href="#home">Inicio</Nav.Link>
-                <Nav.Link href="#about">Nosotros</Nav.Link>
-                <Nav.Link href="#services">Servicios</Nav.Link>
-                <Nav.Link href="#features">Caracteristicas</Nav.Link>
-                <Nav.Link href="#workteam">Equipo</Nav.Link>
-                <Nav.Link href="#contact">Contacto</Nav.Link>
-                <Nav.Link href="#ideas">Ideas</Nav.Link>
-
-                <Button className="logout-button" onClick={() => userLogout()} variant="light">
-                    {user.name} <FontAwesomeIcon icon={faSignOutAlt} />
-                </Button>
-                {/* <Nav className="name-container">
+                <Nav className="name-container">
                     <Nav.Item className="nav-user-name">{user.name}</Nav.Item>
                 </Nav>
-                <Button onClick={() => userLogout()} variant="light">Logout</Button> */}
+                <div className="logout-container">
+                    <Button onClick={() => userLogout()} variant="light"><FontAwesomeIcon icon={faSignOutAlt} /></Button>
+                </div>
             </Navbar.Collapse>
         </Navbar>
     )
